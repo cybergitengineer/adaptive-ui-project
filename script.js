@@ -47,9 +47,21 @@ function updateUsagePanel() {
     });
 }
 
+function generateRecommendation(mostUsed) {
+  const recommendations = {
+    Analytics: "You frequently use Analytics. Consider exploring Reports for deeper insights.",
+    Reports: "You often use Reports. Analytics may help you review trends faster.",
+    Settings: "You frequently use Settings. Help may guide you through advanced customization.",
+    Help: "You often use Help. Settings can be used to personalize your experience further."
+  };
+
+  return recommendations[mostUsed] || "No recommendation available.";
+}
+
 function adaptInterface() {
   const mostUsed = getMostUsedFeature();
   const statusMessage = document.getElementById("statusMessage");
+  const recommendationMessage = document.getElementById("recommendationMessage");
   const dashboard = document.getElementById("dashboard");
   const cards = Array.from(document.querySelectorAll(".card"));
 
@@ -60,6 +72,7 @@ function adaptInterface() {
   if (!mostUsed) {
     statusMessage.textContent =
       "Interact with the dashboard to help the system learn your preferences.";
+    recommendationMessage.textContent = "No recommendation yet.";
     return;
   }
 
@@ -71,10 +84,10 @@ function adaptInterface() {
     targetCard.classList.add("adapted", "most-used");
     dashboard.prepend(targetCard);
 
-    const recommendation = generateRecommendation(mostUsed);
-
     statusMessage.textContent =
-        `The interface adapted by prioritizing "${mostUsed}" because it is your most frequently used feature. ${recommendation}`;
+      `The interface adapted by prioritizing "${mostUsed}" because it is your most frequently used feature.`;
+
+    recommendationMessage.textContent = generateRecommendation(mostUsed);
   }
 }
 
