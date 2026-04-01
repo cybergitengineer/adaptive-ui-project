@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adaptive UI Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Adaptive User Interface Dashboard</h1>
+      <p class="subtitle">
+        This dashboard adapts to user behavior by prioritizing frequently used features.
+      </p>
+    </header>
+
+    <section class="status-panel">
+      <h2>System Status</h2>
+      <p id="statusMessage">Interact with the dashboard to help the system learn your preferences.</p>
+      <button id="resetBtn">Reset Adaptation</button>
+    </section>
+
+    <section>
+      <h2>Features</h2>
+      <div id="dashboard" class="dashboard">
+        <div class="card" id="analytics" data-feature="Analytics">
+          <h3>Analytics</h3>
+          <p>View data trends and summaries.</p>
+          <button class="feature-btn">Open Analytics</button>
+        </div>
+
+        <div class="card" id="reports" data-feature="Reports">
+          <h3>Reports</h3>
+          <p>Generate and review reports.</p>
+          <button class="feature-btn">Open Reports</button>
+        </div>
+
+        <div class="card" id="settings" data-feature="Settings">
+          <h3>Settings</h3>
+          <p>Adjust your preferences and profile.</p>
+          <button class="feature-btn">Open Settings</button>
+        </div>
+
+        <div class="card" id="help" data-feature="Help">
+          <h3>Help</h3>
+          <p>Find guidance and support resources.</p>
+          <button class="feature-btn">Open Help</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="usage-panel">
+      <h2>Usage Data</h2>
+      <ul id="usageList"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
